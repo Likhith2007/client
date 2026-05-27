@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline AI Tutor – Personalized Learning for Every Student</title>
+  <meta name="description" content="An AI-powered offline educational tutor using Gemma 4, designed for students in rural and low-connectivity areas. Supports English, Hindi, and Assamese." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="url(#logoGrad)"/>
+          <path d="M12 28L20 12L28 28" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14.5 23H25.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#3B82F6"/>
+              <stop offset="1" stop-color="#1D4ED8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="brand-name">Offline AI Tutor</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home" class="nav-link active" onclick="showPage('home')">Home</a>
+      <a href="#tutor" class="nav-link" onclick="showPage('tutor')">AI Tutor</a>
+      <a href="#demo" class="nav-link" onclick="showPage('demo')">Demo</a>
+      <a href="#dashboard" class="nav-link" onclick="showPage('dashboard')">Dashboard</a>
+      <a href="#architecture" class="nav-link" onclick="showPage('architecture')">Architecture</a>
+    </div>
+    <button class="btn-get-started" onclick="showPage('profile')">Get Started</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showPage('home'); toggleMenu()">Home</a>
+    <a href="#" onclick="showPage('tutor'); toggleMenu()">AI Tutor</a>
+    <a href="#" onclick="showPage('demo'); toggleMenu()">Demo</a>
+    <a href="#" onclick="showPage('dashboard'); toggleMenu()">Dashboard</a>
+    <a href="#" onclick="showPage('architecture'); toggleMenu()">Architecture</a>
+    <a href="#" onclick="showPage('profile'); toggleMenu()">Get Started</a>
+  </div>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page active">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Powered by Gemma 4 · 100% Offline
+      </div>
+      <h1 class="hero-title">
+        Personalized AI Education<br/>
+        <span class="gradient-text">For Every Student</span>
+      </h1>
+      <p class="hero-subtitle">
+        An intelligent tutor that works without internet — designed for students in rural and low-connectivity areas. Supports English, Hindi &amp; Assamese.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('profile')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 3L19 12L5 21V3Z" fill="currentColor"/></svg>
+          Start Learning
+        </button>
+        <button class="btn-secondary" onclick="showPage('demo')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M10 8L16 12L10 16V8Z" fill="currentColor"/></svg>
+          Watch Demo
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Languages</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">12</span>
+          <span class="stat-label">Grade Levels</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Offline</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Questions</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="chat-preview">
+        <div class="chat-header-preview">
+          <div class="chat-avatar-preview">A</div>
+          <div>
+            <div class="chat-name-preview">Aryan • Class 8</div>
+            <div class="chat-status-preview"><span class="status-dot"></span> Offline Mode Active</div>
+          </div>
+        </div>
+        <div class="chat-messages-preview">
+          <div class="msg-preview user">What is photosynthesis?</div>
+          <div class="msg-preview bot typing-animation">
+            <div class="bot-icon-small">AI</div>
+            <div class="msg-text-preview">
+              Photosynthesis is how plants make their own food using sunlight, water, and CO₂...
+              <div class="formula-preview">6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</div>
+            </div>
+          </div>
+          <div class="msg-preview user assamese">সূৰ্য কি?</div>
+          <div class="msg-preview bot">
+            <div class="bot-icon-small">AI</div>
+            <div class="msg-text-preview">সূৰ্য হৈছে আমাৰ সৌৰজগতৰ কেন্দ্ৰত থকা এটা বিশাল তৰা...</div>
+          </div>
+        </div>
+        <div class="chat-input-preview">
+          <span>Ask anything...</span>
+          <div class="send-btn-preview">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Core Features</span>
+        <h2>Everything a Student Needs</h2>
+        <p>Built specifically for students in areas with limited or no internet access</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="white"/></svg>
+          </div>
+          <h3>Grade-Adaptive Responses</h3>
+          <p>Same question, different explanations for Class 3, 8, and 12 students automatically.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #8B5CF6, #6D28D9);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" fill="white"/></svg>
+          </div>
+          <h3>3 Language Support</h3>
+          <p>Respond in English, Hindi, and Assamese — bridging the language barrier for regional students.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #10B981, #059669);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" fill="white"/></svg>
+          </div>
+          <h3>100% Offline</h3>
+          <p>Uses locally deployed Gemma 4 model. No internet required after initial setup.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" fill="white"/></svg>
+          </div>
+          <h3>Student Profiles</h3>
+          <p>Personalized profiles that track progress and adapt content to learning needs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #EF4444, #DC2626);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z" fill="white"/></svg>
+          </div>
+          <h3>Safe for Students</h3>
+          <p>Educational-only responses with age-appropriate content filtering and safety guardrails.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #06B6D4, #0891B2);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="white"/></svg>
+          </div>
+          <h3>Teacher Dashboard</h3>
+          <p>Monitor student progress, view analytics, and track frequently asked questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grade Level Demo Section -->
+  <section class="grade-demo-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Grade-Level Intelligence</span>
+        <h2>One Question, Three Explanations</h2>
+        <p>The AI adapts its explanation based on the student's grade level</p>
+      </div>
+      <div class="grade-tabs">
+        <button class="grade-tab active" onclick="switchGradeTab('primary')">🌱 Primary (Class 3)</button>
+        <button class="grade-tab" onclick="switchGradeTab('middle')">📚 Middle (Class 8)</button>
+        <button class="grade-tab" onclick="switchGradeTab('high')">🎓 High (Class 12)</button>
+      </div>
+      <div class="grade-content" id="gradeContent">
+        <div class="grade-question">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" fill="#3B82F6"/></svg>
+          Question: What is Photosynthesis?
+        </div>
+        <div class="grade-answer" id="gradePrimary">
+          <div class="grade-level-badge primary">Class 3 – Primary</div>
+          <p>🌱 <strong>Photosynthesis is how plants make their food!</strong></p>
+          <p>Plants use <strong>sunlight</strong> ☀️, <strong>water</strong> 💧 from the soil, and <strong>air</strong> 🌬️ to make food for themselves. It happens in the green part of the leaves called <em>chlorophyll</em>.</p>
+          <p>Think of it like this: plants have tiny kitchens in their leaves, and sunlight is the fire they use to cook!</p>
+          <div class="answer-tag">✅ Simple words · Fun analogies · Age 7-9</div>
+        </div>
+        <div class="grade-answer hidden" id="gradeMiddle">
+          <div class="grade-level-badge middle">Class 8 – Middle School</div>
+          <p>🌿 <strong>Photosynthesis</strong> is the process by which green plants convert light energy into chemical energy (food).</p>
+          <p><strong>Inputs:</strong> Carbon dioxide (CO₂) from air + Water (H₂O) from soil + Sunlight energy</p>
+          <p><strong>Output:</strong> Glucose (C₆H₁₂O₆) + Oxygen (O₂)</p>
+          <div class="formula-box">6CO₂ + 6H₂O + Light → C₆H₁₂O₆ + 6O₂</div>
+          <p>This happens in the <em>chloroplasts</em>, specifically using <em>chlorophyll</em> pigment which gives plants their green color.</p>
+          <div class="answer-tag">✅ Balanced understanding · Basic formula · Age 13-14</div>
+        </div>
+        <div class="grade-answer hidden" id="gradeHigh">
+          <div class="grade-level-badge high">Class 12 – High School</div>
+          <p>⚗️ <strong>Photosynthesis</strong> is a two-stage biochemical process: the <strong>Light Reactions</strong> and the <strong>Calvin Cycle (Dark Reactions)</strong>.</p>
+          <p><strong>Light Reactions (Thylakoid membrane):</strong> Photons excite electrons in Photosystem II → Water photolysis produces O₂ → Electron transport chain generates ATP and NADPH → Photosystem I reduces NADP⁺ to NADPH</p>
+          <p><strong>Calvin Cycle (Stroma):</strong> CO₂ fixation by RuBisCO → 3-carbon compounds → Reduction using ATP/NADPH → Regeneration of RuBP</p>
+          <div class="formula-box">6CO₂ + 12H₂O + Light energy → C₆H₁₂O₆ + 6O₂ + 6H₂O</div>
+          <p>The quantum efficiency of photosynthesis is approximately 11%, with C3, C4, and CAM pathways representing evolutionary adaptations.</p>
+          <div class="answer-tag">✅ Advanced detail · Biochemical precision · Age 17-18</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Language Section -->
+  <section class="language-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Multilingual Support</span>
+        <h2>Learning in Your Mother Tongue</h2>
+        <p>Ask questions in Assamese and get clear, accurate answers</p>
+      </div>
+      <div class="lang-cards">
+        <div class="lang-card assamese-card">
+          <div class="lang-card-header">
+            <span class="lang-flag">🇮🇳</span>
+            <span class="lang-name">অসমীয়া (Assamese)</span>
+          </div>
+          <div class="lang-qa">
+            <div class="lang-q">প্ৰশ্ন: অসমৰ ৰাজধানী কি?</div>
+            <div class="lang-a">উত্তৰ: অসমৰ ৰাজধানী হৈছে <strong>দিচপুৰ</strong>। ই গুৱাহাটী চহৰৰ কাষত অৱস্থিত। দিচপুৰ অসম চৰকাৰৰ কাৰ্যালয়সমূহৰ কেন্দ্ৰ।</div>
+          </div>
+          <div class="lang-qa">
+            <div class="lang-q">প্ৰশ্ন: সূৰ্য কি?</div>
+            <div class="lang-a">উত্তৰ: সূৰ্য হৈছে আমাৰ সৌৰজগতৰ কেন্দ্ৰত থকা এটা বিশাল তৰা। ই গৰম গেছেৰে তৈয়াৰ আৰু ইয়াৰ পোহৰ আৰু তাপে পৃথিৱীত জীৱন সম্ভৱ কৰে।</div>
+          </div>
+          <div class="lang-qa">
+            <div class="lang-q">প্ৰশ্ন: পৃথিৱী কিয় ঘূৰে?</div>
+            <div class="lang-a">উত্তৰ: পৃথিৱী নিজৰ অক্ষত ঘূৰে কাৰণ ইয়াৰ গঠনৰ সময়ত আৰম্ভ হোৱা ঘূৰণৰ গতিশক্তি এতিয়াও আছে। এই কাৰণেই দিন আৰু ৰাতি হয়।</div>
+          </div>
+        </div>
+        <div class="lang-card hindi-card">
+          <div class="lang-card-header">
+            <span class="lang-flag">🇮🇳</span>
+            <span class="lang-name">हिन्दी (Hindi)</span>
+          </div>
+          <div class="lang-qa">
+            <div class="lang-q">प्रश्न: प्रकाश संश्लेषण क्या है?</div>
+            <div class="lang-a">उत्तर: प्रकाश संश्लेषण वह प्रक्रिया है जिसमें पौधे सूर्य की रोशनी, पानी और कार्बन डाइऑक्साइड का उपयोग करके अपना भोजन बनाते हैं। इससे ऑक्सीजन भी निकलती है।</div>
+          </div>
+          <div class="lang-qa">
+            <div class="lang-q">प्रश्न: सूर्य क्या है?</div>
+            <div class="lang-a">उत्तर: सूर्य हमारे सौरमंडल के केंद्र में स्थित एक विशाल तारा है। यह गर्म गैसों से बना है और इसकी रोशनी व गर्मी पृथ्वी पर जीवन को संभव बनाती है।</div>
+          </div>
+        </div>
+        <div class="lang-card english-card">
+          <div class="lang-card-header">
+            <span class="lang-flag">🇬🇧</span>
+            <span class="lang-name">English</span>
+          </div>
+          <div class="lang-qa">
+            <div class="lang-q">Q: What is the Solar System?</div>
+            <div class="lang-a">A: The Solar System is the collection of the Sun and all objects that orbit around it, including 8 planets, their moons, asteroids, comets, and other space objects.</div>
+          </div>
+          <div class="lang-qa">
+            <div class="lang-q">Q: Why is the sky blue?</div>
+            <div class="lang-a">A: The sky appears blue because of a phenomenon called Rayleigh scattering. Sunlight contains all colors, but blue light scatters more easily through the atmosphere than other colors.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="nav-logo" style="width:36px;height:36px;">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="url(#fLogoGrad)"/><path d="M12 28L20 12L28 28" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 23H25.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="fLogoGrad" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#1D4ED8"/></linearGradient></defs></svg>
+        </div>
+        <span style="font-weight:700;font-size:1.1rem;color:#fff;">Offline AI Tutor</span>
+      </div>
+      <p class="footer-desc">Bringing quality education to every corner of India — no internet required.</p>
+      <div class="footer-tech">
+        <span class="tech-chip">Gemma 4</span>
+        <span class="tech-chip">FastAPI</span>
+        <span class="tech-chip">Flutter</span>
+        <span class="tech-chip">LoRA</span>
+        <span class="tech-chip">SQLite</span>
+      </div>
+      <p class="footer-copy">© 2025 Offline AI Tutor · Built for Bharat 🇮🇳</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===== PROFILE SETUP PAGE ===== -->
+<div id="page-profile" class="page">
+  <div class="page-inner">
+    <div class="profile-setup-container">
+      <div class="setup-header">
+        <div class="setup-icon">👤</div>
+        <h1>Create Your Learning Profile</h1>
+        <p>Tell us about yourself so the AI Tutor can personalize lessons just for you</p>
+      </div>
+      <form class="setup-form" onsubmit="saveProfile(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="studentName">Your Name *</label>
+            <input type="text" id="studentName" placeholder="e.g. Priya Sharma" required />
+          </div>
+          <div class="form-group">
+            <label for="studentClass">Grade / Class *</label>
+            <select id="studentClass" required>
+              <option value="">Select your class</option>
+              <option value="1">Class 1</option>
+              <option value="2">Class 2</option>
+              <option value="3">Class 3</option>
+              <option value="4">Class 4</option>
+              <option value="5">Class 5</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10</option>
+              <option value="11">Class 11</option>
+              <option value="12">Class 12</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Preferred Language</label>
+          <div class="lang-options">
+            <label class="lang-option">
+              <input type="radio" name="language" value="Assamese" checked />
+              <span class="lang-option-label">🇮🇳 অসমীয়া (Assamese)</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject Interests</label>
+          <div class="subject-grid">
+            <label class="subject-chip"><input type="checkbox" value="Science" /> 🔬 Science</label>
+            <label class="subject-chip"><input type="checkbox" value="Mathematics" checked /> ➗ Mathematics</label>
+            <label class="subject-chip"><input type="checkbox" value="History" /> 📜 History</label>
+            <label class="subject-chip"><input type="checkbox" value="Geography" /> 🌍 Geography</label>
+            <label class="subject-chip"><input type="checkbox" value="English" /> 📖 English</label>
+            <label class="subject-chip"><input type="checkbox" value="Hindi" /> हि Hindi</label>
+            <label class="subject-chip"><input type="checkbox" value="Physics" /> ⚛️ Physics</label>
+            <label class="subject-chip"><input type="checkbox" value="Chemistry" /> 🧪 Chemistry</label>
+            <label class="subject-chip"><input type="checkbox" value="Biology" /> 🧬 Biology</label>
+            <label class="subject-chip"><input type="checkbox" value="Computer Science" /> 💻 Comp. Sci</label>
+            <label class="subject-chip"><input type="checkbox" value="Economics" /> 📈 Economics</label>
+            <label class="subject-chip"><input type="checkbox" value="Art" /> 🎨 Art</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="learningGoal">Learning Goal (optional)</label>
+          <input type="text" id="learningGoal" placeholder="e.g. Prepare for board exams, improve in Science..." />
+        </div>
+        <button type="submit" class="btn-primary btn-full">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 3L19 12L5 21V3Z" fill="currentColor"/></svg>
+          Save Profile &amp; Start Learning
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===== AI TUTOR PAGE ===== -->
+<div id="page-tutor" class="page">
+  <div class="tutor-layout">
+    <!-- Sidebar -->
+    <aside class="tutor-sidebar">
+      <div class="sidebar-profile" id="sidebarProfile">
+        <div class="profile-avatar" id="profileAvatar">S</div>
+        <div class="profile-info">
+          <div class="profile-name" id="profileName">Student</div>
+          <div class="profile-meta" id="profileMeta">Class 5 · English</div>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Suggested Questions</div>
+        <div class="suggestions-list" id="suggestionsList">
+          <button class="suggestion-btn" onclick="askQuestion('What is photosynthesis?')">🌿 What is photosynthesis?</button>
+          <button class="suggestion-btn" onclick="askQuestion('Explain Newton\'s laws of motion')">⚛️ Newton's Laws</button>
+          <button class="suggestion-btn" onclick="askQuestion('What is the water cycle?')">💧 Water Cycle</button>
+          <button class="suggestion-btn assamese" onclick="askQuestion('সূৰ্য কি?')">☀️ সূৰ্য কি?</button>
+          <button class="suggestion-btn assamese" onclick="askQuestion('অসমৰ ৰাজধানী কি?')">🏛️ অসমৰ ৰাজধানী কি?</button>
+          <button class="suggestion-btn assamese" onclick="askQuestion('পৃথিৱী কিয় ঘূৰে?')">🌍 পৃথিৱী কিয় ঘূৰে?</button>
+          <button class="suggestion-btn" onclick="askQuestion('What is the French Revolution?')">📜 French Revolution</button>
+          <button class="suggestion-btn" onclick="askQuestion('How does the human heart work?')">❤️ Human Heart</button>
+        </div>
+      </div>
+      <div class="sidebar-section" style="display: none;">
+        <div class="sidebar-label">Quick Language Switch</div>
+        <div class="lang-switch">
+          <button class="lang-btn" id="langEnBtn" onclick="switchLanguage('English')">EN</button>
+          <button class="lang-btn" id="langHiBtn" onclick="switchLanguage('Hindi')">हि</button>
+          <button class="lang-btn active" id="langAsBtn" onclick="switchLanguage('Assamese')">অস</button>
+        </div>
+      </div>
+      <div class="sidebar-offline-badge">
+        <div class="offline-icon">📡</div>
+        <div>
+          <div class="offline-title">Offline Mode</div>
+          <div class="offline-sub">Gemma 4 · Local</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Chat Area -->
+    <main class="chat-main">
+      <div class="chat-topbar">
+        <div class="chat-topbar-info">
+          <h2>AI Tutor</h2>
+          <span class="topbar-status"><span class="green-dot"></span> Model Ready</span>
+        </div>
+        <div class="topbar-actions" style="display: flex; gap: 12px; align-items: center;">
+          <select id="modelSelect" class="model-select-dropdown" onchange="switchModel(this.value)">
+            <!-- Dynamically populated -->
+          </select>
+          <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="welcome-message">
+          <div class="welcome-icon">🎓</div>
+          <h3>নমস্কাৰ! মই তোমাৰ AI শিক্ষক</h3>
+          <p>মই তোমাৰ প্ৰশ্নবোৰ অসমীয়াত উত্তৰ দিম। মোৰ ব্যাখ্যা তোমাৰ শ্ৰেণী অনুসৰি সলনি হ'ব। আজি তুমি কি শিকিব বিচাৰিছা?</p>
+          <div class="welcome-chips">
+            <span class="welcome-chip" onclick="askQuestion('Photosynthesis কি?')">🌿 Photosynthesis</span>
+            <span class="welcome-chip" onclick="askQuestion('সূৰ্য কি?')">☀️ সূৰ্য কি?</span>
+            <span class="welcome-chip" onclick="askQuestion('Gravity কি?')">⬇️ Gravity</span>
+          </div>
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <div class="follow-up-suggestions" id="followUpSuggestions" style="display:none;"></div>
+        <div class="input-container">
+          <div class="input-wrapper">
+            <textarea id="chatInput" placeholder="যিকোনো প্ৰশ্ন সোধা... (অসমীয়াত উত্তৰ পাব)" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+            <div class="input-actions">
+              <span class="input-lang-badge" id="inputLangBadge">অস</span>
+              <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/></svg>
+              </button>
+            </div>
+          </div>
+          <p class="input-note">🔒 All processing happens locally · No data leaves your device</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ===== DEMO PAGE ===== -->
+<div id="page-demo" class="page">
+  <div class="page-inner">
+    <div class="demo-container">
+      <div class="demo-header">
+        <span class="section-badge">Interactive Demo</span>
+        <h1>See the AI Tutor in Action</h1>
+        <p>Follow the demo flow: Class 5 student, Assamese language, asking about the Sun</p>
+      </div>
+      <div class="demo-steps">
+        <div class="demo-step active" id="demoStep1">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Student Selects Profile</h3>
+            <div class="demo-profile-card">
+              <div class="demo-avatar">A</div>
+              <div>
+                <div class="demo-student-name">Ankita Borah</div>
+                <div class="demo-student-meta">Class 5 · Assamese Medium</div>
+                <div class="demo-tags">
+                  <span class="demo-tag">🌍 Geography</span>
+                  <span class="demo-tag">🔬 Science</span>
+                  <span class="demo-tag">📖 Assamese</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn-primary" onclick="nextDemoStep(2)">Continue →</button>
+          </div>
+        </div>
+        <div class="demo-step" id="demoStep2">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Student Asks a Question</h3>
+            <div class="demo-question-box">
+              <div class="demo-q-label">Question asked in Assamese:</div>
+              <div class="demo-q-text">"সূৰ্য কি?"</div>
+              <div class="demo-q-translation">(Translation: "What is the Sun?")</div>
+            </div>
+            <button class="btn-primary" onclick="nextDemoStep(3)">See AI Response →</button>
+          </div>
+        </div>
+        <div class="demo-step" id="demoStep3">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>AI Processes the Request</h3>
+            <div class="demo-pipeline">
+              <div class="pipeline-step">
+                <div class="pipeline-icon">👤</div>
+                <div class="pipeline-label">Student Input</div>
+                <div class="pipeline-detail">"সূৰ্য কি?" · Class 5 · Assamese</div>
+              </div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-step">
+                <div class="pipeline-icon">⚙️</div>
+                <div class="pipeline-label">Prompt Builder</div>
+                <div class="pipeline-detail">Grade context + Language tag + Safety rules</div>
+              </div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-step">
+                <div class="pipeline-icon">🤖</div>
+                <div class="pipeline-label">Gemma 4 Local</div>
+                <div class="pipeline-detail">On-device inference · No internet</div>
+              </div>
+            </div>
+            <button class="btn-primary" onclick="nextDemoStep(4)">Show Response →</button>
+          </div>
+        </div>
+        <div class="demo-step" id="demoStep4">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Personalized Response Delivered</h3>
+            <div class="demo-response">
+              <div class="demo-response-header">
+                <span class="ai-badge">🤖 AI Tutor · Class 5 · Assamese</span>
+                <span class="response-time">⚡ 1.2s</span>
+              </div>
+              <div class="demo-response-body">
+                <p><strong>সূৰ্য হৈছে আমাৰ সৌৰজগতৰ কেন্দ্ৰত থকা এটা বিশাল তৰা।</strong></p>
+                <p>ই আমাৰ পৃথিৱীৰ পৰা প্ৰায় ১৫ কোটি কিলোমিটাৰ দূৰত আছে। সূৰ্য অতি গৰম গেছেৰে (হাইড্ৰ'জেন আৰু হিলিয়াম) তৈয়াৰ।</p>
+                <p>সূৰ্যৰ পোহৰ আৰু তাপে পৃথিৱীত গছ-পাত, জীৱ-জন্তু আৰু মানুহ বাচি থাকিব পৰাটো সম্ভৱ কৰে। 🌞</p>
+                <div class="demo-fun-fact">
+                  <strong>মজাৰ তথ্য:</strong> সূৰ্যৰ ভিতৰত প্ৰতি ছেকেণ্ডত ৬০ কোটি টন হাইড্ৰ'জেন হিলিয়ামলৈ পৰিণত হয়!
+                </div>
+              </div>
+              <div class="demo-follow-ups">
+                <div class="follow-up-label">Suggested follow-up questions:</div>
+                <div class="follow-up-chips">
+                  <span class="follow-up-chip" onclick="askQuestion('সূৰ্যৰ পোহৰ পৃথিৱীত আহিবলৈ কিমান সময় লাগে?')">সূৰ্যৰ পোহৰ কিমান দূৰ?</span>
+                  <span class="follow-up-chip" onclick="askQuestion('সৌৰজগতত কিমান গ্ৰহ আছে?')">সৌৰজগতত কিমান গ্ৰহ?</span>
+                  <span class="follow-up-chip" onclick="askQuestion('সূৰ্য কিমান গৰম?')">সূৰ্য কিমান গৰম?</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn-primary" onclick="showPage('tutor')">Try It Yourself →</button>
+          </div>
+        </div>
+      </div>
+      <div class="demo-progress">
+        <div class="demo-dot active" id="dot1"></div>
+        <div class="demo-dot" id="dot2"></div>
+        <div class="demo-dot" id="dot3"></div>
+        <div class="demo-dot" id="dot4"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TEACHER DASHBOARD ===== -->
+<div id="page-dashboard" class="page">
+  <div class="page-inner dashboard-inner">
+    <div class="dashboard-header">
+      <div>
+        <h1>Teacher Dashboard</h1>
+        <p>Monitor student progress and learning analytics</p>
+      </div>
+      <div class="dashboard-header-actions">
+        <span class="last-updated">Last updated: Just now</span>
+        <button class="btn-primary" style="padding:10px 20px;font-size:0.9rem;">Export Report</button>
+      </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-card-icon" style="background:linear-gradient(135deg,#3B82F6,#1D4ED8);">👥</div>
+        <div class="stat-card-info">
+          <div class="stat-card-num">24</div>
+          <div class="stat-card-label">Active Students</div>
+        </div>
+        <div class="stat-trend up">+3 this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon" style="background:linear-gradient(135deg,#10B981,#059669);">❓</div>
+        <div class="stat-card-info">
+          <div class="stat-card-num">1,247</div>
+          <div class="stat-card-label">Questions Asked</div>
+        </div>
+        <div class="stat-trend up">+186 today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9);">⏱️</div>
+        <div class="stat-card-info">
+          <div class="stat-card-num">3.4h</div>
+          <div class="stat-card-label">Avg. Daily Usage</div>
+        </div>
+        <div class="stat-trend up">+0.5h vs last week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon" style="background:linear-gradient(135deg,#F59E0B,#D97706);">⭐</div>
+        <div class="stat-card-info">
+          <div class="stat-card-num">4.8</div>
+          <div class="stat-card-label">Satisfaction Score</div>
+        </div>
+        <div class="stat-trend up">High engagement</div>
+      </div>
+    </div>
+
+    <!-- Main Dashboard Grid -->
+    <div class="dashboard-grid">
+      <!-- Student Table -->
+      <div class="dashboard-card large">
+        <div class="card-header">
+          <h3>Student Performance</h3>
+          <div class="card-actions">
+            <select class="card-filter">
+              <option>All Classes</option>
+              <option>Class 5</option>
+              <option>Class 8</option>
+              <option>Class 12</option>
+            </select>
+          </div>
+        </div>
+        <div class="student-table-wrapper">
+          <table class="student-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Class</th>
+                <th>Language</th>
+                <th>Questions</th>
+                <th>Progress</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="student-cell"><div class="s-avatar" style="background:#3B82F6;">A</div> Ankita Borah</div></td>
+                <td>Class 5</td>
+                <td><span class="lang-tag">অসমীয়া</span></td>
+                <td>84</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:78%;background:#3B82F6;"></div></div><span>78%</span></td>
+                <td><span class="status-badge active">Active</span></td>
+              </tr>
+              <tr>
+                <td><div class="student-cell"><div class="s-avatar" style="background:#8B5CF6;">R</div> Rajan Das</div></td>
+                <td>Class 8</td>
+                <td><span class="lang-tag">English</span></td>
+                <td>127</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:91%;background:#10B981;"></div></div><span>91%</span></td>
+                <td><span class="status-badge active">Active</span></td>
+              </tr>
+              <tr>
+                <td><div class="student-cell"><div class="s-avatar" style="background:#10B981;">P</div> Priya Sharma</div></td>
+                <td>Class 12</td>
+                <td><span class="lang-tag">हिन्दी</span></td>
+                <td>203</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:95%;background:#F59E0B;"></div></div><span>95%</span></td>
+                <td><span class="status-badge active">Active</span></td>
+              </tr>
+              <tr>
+                <td><div class="student-cell"><div class="s-avatar" style="background:#EF4444;">M</div> Mohan Kalita</div></td>
+                <td>Class 6</td>
+                <td><span class="lang-tag">অসমীয়া</span></td>
+                <td>56</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:62%;background:#EF4444;"></div></div><span>62%</span></td>
+                <td><span class="status-badge idle">Idle</span></td>
+              </tr>
+              <tr>
+                <td><div class="student-cell"><div class="s-avatar" style="background:#F59E0B;">S</div> Sunita Gogoi</div></td>
+                <td>Class 10</td>
+                <td><span class="lang-tag">English</span></td>
+                <td>176</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:83%;background:#3B82F6;"></div></div><span>83%</span></td>
+                <td><span class="status-badge active">Active</span></td>
+              </tr>
+              <tr>
+                <td><div class="student-cell"><div class="s-avatar" style="background:#06B6D4;">D</div> Dipankar Roy</div></td>
+                <td>Class 3</td>
+                <td><span class="lang-tag">हिन्दी</span></td>
+                <td>41</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:55%;background:#06B6D4;"></div></div><span>55%</span></td>
+                <td><span class="status-badge active">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>Top Questions This Week</h3>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <span class="faq-rank">1</span>
+            <div class="faq-content">
+              <div class="faq-q">What is photosynthesis?</div>
+              <div class="faq-meta">Asked 34 times · Science</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <span class="faq-rank">2</span>
+            <div class="faq-content">
+              <div class="faq-q">সূৰ্য কি? (What is the Sun?)</div>
+              <div class="faq-meta">Asked 28 times · Assamese</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <span class="faq-rank">3</span>
+            <div class="faq-content">
+              <div class="faq-q">Newton's Laws of Motion</div>
+              <div class="faq-meta">Asked 22 times · Physics</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <span class="faq-rank">4</span>
+            <div class="faq-content">
+              <div class="faq-q">प्रकाश संश्लेषण क्या है?</div>
+              <div class="faq-meta">Asked 19 times · Hindi</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <span class="faq-rank">5</span>
+            <div class="faq-content">
+              <div class="faq-q">What is the Water Cycle?</div>
+              <div class="faq-meta">Asked 16 times · Geography</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subject Distribution -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>Subject Distribution</h3>
+        </div>
+        <div class="subject-dist">
+          <div class="dist-item">
+            <div class="dist-label">🔬 Science</div>
+            <div class="dist-bar"><div class="dist-fill" style="width:40%;background:#3B82F6;"></div></div>
+            <div class="dist-pct">40%</div>
+          </div>
+          <div class="dist-item">
+            <div class="dist-label">➗ Mathematics</div>
+            <div class="dist-bar"><div class="dist-fill" style="width:25%;background:#8B5CF6;"></div></div>
+            <div class="dist-pct">25%</div>
+          </div>
+          <div class="dist-item">
+            <div class="dist-label">📜 History</div>
+            <div class="dist-bar"><div class="dist-fill" style="width:15%;background:#F59E0B;"></div></div>
+            <div class="dist-pct">15%</div>
+          </div>
+          <div class="dist-item">
+            <div class="dist-label">🌍 Geography</div>
+            <div class="dist-bar"><div class="dist-fill" style="width:12%;background:#10B981;"></div></div>
+            <div class="dist-pct">12%</div>
+          </div>
+          <div class="dist-item">
+            <div class="dist-label">📖 Language</div>
+            <div class="dist-bar"><div class="dist-fill" style="width:8%;background:#EF4444;"></div></div>
+            <div class="dist-pct">8%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Language Usage -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h3>Language Usage</h3>
+        </div>
+        <div class="lang-usage">
+          <div class="lang-usage-item">
+            <div class="lang-circle assamese-circle">অস</div>
+            <div>
+              <div class="lang-usage-name">Assamese</div>
+              <div class="lang-usage-pct">48%</div>
+            </div>
+          </div>
+          <div class="lang-usage-item">
+            <div class="lang-circle english-circle">EN</div>
+            <div>
+              <div class="lang-usage-name">English</div>
+              <div class="lang-usage-pct">33%</div>
+            </div>
+          </div>
+          <div class="lang-usage-item">
+            <div class="lang-circle hindi-circle">हि</div>
+            <div>
+              <div class="lang-usage-name">Hindi</div>
+              <div class="lang-usage-pct">19%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ARCHITECTURE PAGE ===== -->
+<div id="page-architecture" class="page">
+  <div class="page-inner">
+    <div class="arch-container">
+      <div class="arch-header">
+        <span class="section-badge">Technical Architecture</span>
+        <h1>How It Works</h1>
+        <p>A fully offline AI pipeline running on local hardware</p>
+      </div>
+
+      <!-- System Flow -->
+      <div class="arch-flow">
+        <div class="arch-node student-node">
+          <div class="arch-node-icon">📱</div>
+          <div class="arch-node-label">Student Device</div>
+          <div class="arch-node-desc">Flutter App</div>
+        </div>
+        <div class="arch-arrow">
+          <div class="arch-arrow-line"></div>
+          <div class="arch-arrow-label">Local API Call</div>
+        </div>
+        <div class="arch-node backend-node">
+          <div class="arch-node-icon">⚙️</div>
+          <div class="arch-node-label">FastAPI Backend</div>
+          <div class="arch-node-desc">Prompt Builder + Safety Filter</div>
+        </div>
+        <div class="arch-arrow">
+          <div class="arch-arrow-line"></div>
+          <div class="arch-arrow-label">Inference Request</div>
+        </div>
+        <div class="arch-node model-node">
+          <div class="arch-node-icon">🤖</div>
+          <div class="arch-node-label">Gemma 4 Model</div>
+          <div class="arch-node-desc">Local Inference Engine</div>
+        </div>
+        <div class="arch-arrow">
+          <div class="arch-arrow-line"></div>
+          <div class="arch-arrow-label">Personalized Response</div>
+        </div>
+        <div class="arch-node response-node">
+          <div class="arch-node-icon">✅</div>
+          <div class="arch-node-label">Student Receives</div>
+          <div class="arch-node-desc">Grade-level Answer</div>
+        </div>
+      </div>
+
+      <div class="no-internet-banner">
+        <span>🚫 No Internet Required</span>
+        <span>All processing happens on the local device or school server</span>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="tech-stack-grid">
+        <div class="tech-card">
+          <div class="tech-card-icon">📱</div>
+          <h3>Frontend</h3>
+          <div class="tech-badge">Flutter</div>
+          <ul>
+            <li>Cross-platform (Android & iOS)</li>
+            <li>Offline-first design</li>
+            <li>Multilingual UI</li>
+            <li>Responsive layout</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-icon">⚡</div>
+          <h3>Backend</h3>
+          <div class="tech-badge">FastAPI (Python)</div>
+          <ul>
+            <li>REST API endpoints</li>
+            <li>Grade-level prompt builder</li>
+            <li>Safety content filter</li>
+            <li>Session management</li>
+          </ul>
+        </div>
+        <div class="tech-card featured-tech">
+          <div class="tech-card-icon">🤖</div>
+          <h3>AI Model</h3>
+          <div class="tech-badge gemma">Gemma 4</div>
+          <ul>
+            <li>Google's open-weight LLM</li>
+            <li>Fine-tuned with LoRA/QLoRA</li>
+            <li>Runs locally on CPU/GPU</li>
+            <li>Multilingual support</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-icon">💾</div>
+          <h3>Database</h3>
+          <div class="tech-badge">SQLite</div>
+          <ul>
+            <li>Student profiles</li>
+            <li>Chat history</li>
+            <li>Learning analytics</li>
+            <li>Zero-config setup</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-icon">🔧</div>
+          <h3>Fine-Tuning</h3>
+          <div class="tech-badge lora">LoRA / QLoRA</div>
+          <ul>
+            <li>Parameter-efficient tuning</li>
+            <li>Regional language support</li>
+            <li>Educational domain data</li>
+            <li>Low compute requirements</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-icon">🏫</div>
+          <h3>Deployment</h3>
+          <div class="tech-badge deploy">Local / School Server</div>
+          <ul>
+            <li>Single device installation</li>
+            <li>School LAN server mode</li>
+            <li>Raspberry Pi compatible</li>
+            <li>No cloud dependency</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Grade System Architecture -->
+      <div class="grade-arch-section">
+        <h2>Grade-Level Personalization System</h2>
+        <div class="grade-arch-flow">
+          <div class="grade-arch-box input-box">
+            <strong>Input</strong><br/>
+            Question + Student Grade
+          </div>
+          <div class="grade-arch-arrow">→</div>
+          <div class="grade-arch-box prompt-box">
+            <strong>Prompt Builder</strong><br/>
+            Injects grade context + language + safety instructions
+          </div>
+          <div class="grade-arch-arrow">→</div>
+          <div class="grade-arch-box model-box">
+            <strong>Gemma 4</strong><br/>
+            Generates contextual response
+          </div>
+        </div>
+        <div class="grade-examples-arch">
+          <div class="grade-example-arch primary-arch">
+            <div class="ge-label">Class 1-5 · Primary</div>
+            <div class="ge-prompt">System: "Explain using simple words, fun analogies, and emojis for a Class {grade} student..."</div>
+          </div>
+          <div class="grade-example-arch middle-arch">
+            <div class="ge-label">Class 6-9 · Middle</div>
+            <div class="ge-prompt">System: "Provide a clear scientific explanation with formulas for a Class {grade} student..."</div>
+          </div>
+          <div class="grade-example-arch high-arch">
+            <div class="ge-label">Class 10-12 · High</div>
+            <div class="ge-prompt">System: "Give a detailed, textbook-level explanation with advanced concepts for Class {grade}..."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Safety Architecture -->
+      <div class="safety-section">
+        <h2>🛡️ Safety Architecture</h2>
+        <div class="safety-grid">
+          <div class="safety-card">
+            <div class="safety-icon">🎯</div>
+            <h4>Topic Restriction</h4>
+            <p>Only educational topics allowed. Non-academic queries are redirected.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-icon">👶</div>
+            <h4>Age-Appropriate Filter</h4>
+            <p>Content is filtered based on grade level to ensure age-appropriate responses.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-icon">🔍</div>
+            <h4>Output Validation</h4>
+            <p>Responses are checked for harmful content before being shown to students.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-icon">📋</div>
+            <h4>Teacher Oversight</h4>
+            <p>All conversations are logged for teacher review and monitoring.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
